@@ -1,10 +1,11 @@
-$("img").on("click", function(){
-        // first image clicked moves to fighter area
-        
-        // second image clicked goes to defender area
-    
-        // other images are hidden until someone is defeated
-    
+$(document).ready(function(){
+        // variables
+        var baseAttack = 0;
+        var player;
+        var defender;
+        var charArray= [];
+        var playerSelected = false;
+        var defenderSelected = false;
 })
 
 
