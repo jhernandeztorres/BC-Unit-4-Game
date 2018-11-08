@@ -1,0 +1,11 @@
+/* body {
+    height: 780px;
+    width: 100%;
+} */
+
+.container-fluid {
+    /* background-image: url("../images/background.png"); */
+    color: white;
+    height: 100vh;
+    background-color: black;
+}
