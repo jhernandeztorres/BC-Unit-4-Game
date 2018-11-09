@@ -5,9 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
     <!-- BootStrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="./assets/css/animate.css">
     <title>Star Wars Fighter Game</title>
 </head>
 
@@ -16,65 +22,87 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col text-center">
-                    <h1>Chibi Star Wars Fighter Game</h1>
+                    <h1>Chibi Star Wars Game</h1>
                 </div>
             </div>
         </div>
     </header> <!-- 100% width title row -->
-
+    <hr>
     <!-- Hero/Villain Choice Area -->
-    <div class="container-fluid">
+    <div id="game" class="container-fluid">
         <div class="row">
-            <div class="col text-center">
+            <div class="col text-center jedi">
                 <h4>Jedi</h4>
             </div>
-            <div class="col text-center">
+            <div class="col text-center sith">
                 <h4>Sith</h4>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <div class="jediList" style="border: 1px solid red">
-                    <div class="card"></div> <!-- lukePic -->
-                    <div class="card reyPic"></div>
-                    <div class="card obiPic"></div>
-                    <!-- Jedi Images Go Here -->
+                <div class="card-deck">
+                    <div class="card text-center border-primary">
+                        <div class="card-header border-primary">Luke Skywalker</div>
+                        <img class="card-img" src="assets/images/Luke Skywalker.png" alt="Chibi Luke Skywalker">
+                        <div class="card-footer border-primary lukeHealth"></div>
+                    </div>
+                    <div class="card text-center border-primary">
+                        <div class="card-header border-primary">ObiWan Kenobi</div>
+                        <img class="card-img" src="assets/images/ObiWan Kenobi.png" alt="Chibi ObiWan Kenobi">
+                        <div class="card-footer border-success obiwanHealth"></div>
+                    </div>
+                    <div class="card text-center border-primary">
+                        <div class="card-header border-primary">Rey</div>
+                        <img class="card-img" src="assets/images/Rey.png" alt="Chibi Rey">
+                        <div class="card-footer border-primary reyHealth"></div>
+                    </div>
                 </div>
             </div>
             <div class="col">
-                <div class="sithList" style="border: 1px solid green">
-                    <div class="card darthPic"></div>
-                    <div class="kyloPic"></div>
-                    <div class="trooperPic"></div>
-                    <!-- Sith Images Go Here -->
+                <div class="card-deck">
+                    <div class="card text-center border-danger">
+                        <div class="card-header border-danger">Darth Vader</div>
+                        <img class="card-img" src="assets/images/Darth Vader.png" alt="Chibi Darth Vader">
+                        <div class="card-footer border-danger vaderHealth"></div>
+                    </div>
+                    <div class="card text-center border-danger">
+                        <div class="card-header border-danger">Kylo Ren</div>
+                        <img class="card-img" src="assets/images/Kylo Ren.png" alt="Chibi Kylo Ren">
+                        <div class="card-footer border-danger kyloHealth"></div>
+                    </div>
+                    <div class="card text-center border-danger">
+                        <div class="card-header border-danger">Darth Maul</div>
+                        <img class="card-img" src="assets/images/Darth Maul.PNG" alt="Chibi Darth Maul">
+                        <div class="card-footer border-danger maulHealth"></div>
+                    </div>
                 </div>
             </div>
         </div>
+        <br>
         <hr>
+        <br>
         <!-- Battle Area -->
         <div class="row">
             <div class="col text-center">
-                <h2>FIGHT!</h2>
+                <h2 id="messages">Select Your Warrior!</h2>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4 text-center">
                 <h2>Your Warrior</h2>
-                <div class="col" style="border: 1px solid orange">
-                    <div id="yourWarrior">
-                        <!-- First Chosen Image Goes Here -->
-                    </div>
+                <div class="col">
+                    <div id="yourWarrior"></div>
+                    <div class="yourWarriorHealth"></div>
                 </div>
             </div>
-            <div class="col-md-4 text-center" style="border: 1px solid purple">
+            <div class="col-md-4 text-center">
                 <button class="btn-danger btn-lg text-center" id="attackBtn"> Attack! </button>
             </div>
             <div class="col-md-4 text-center">
                 <h2>Your Enemy</h2>
-                <div class="col" style="border: 1px solid blue">
-                    <div id="yourEnemy">
-                        <!-- Second Chosen Image Goes Here -->
-                    </div>
+                <div class="col">
+                    <div id="yourEnemy"></div>
+                    <div class="yourEnemyHealth"></div>
                 </div>
             </div>
         </div>

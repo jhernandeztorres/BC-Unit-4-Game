@@ -1,41 +1,62 @@
 $(document).ready(function(){
-        // Variables
-        var baseAttack = 0;
-        var player;
-        var defender;
-        var charArray= [];
-        var warriorSelected = false;
-        var enemySelected = false;
+    // variables
+    // [visible, hp, attack, counter]
+    var lukeArr = [true, 120, 8, 8];
+    var obiwanArr = [true, 130, 10, 10];
+    var reyArr = [true, 125, 9, 9];
+    var vaderArr = [true, 200, 20, 20];
+    var kyloArr = [true, 110, 7, 6];
+    var maulArr = [true, 140, 9, 9];
+    
+    // Shows whether game has started or not
+    var isGameOver = false;
+    var isGameStart = false;
 
-        // Constructor
-        function Character(name, hp, ap, counter, pic){
-                this.name = name;
-                this.hp = hp;
-                this.ap = ap;
-                this.counter;
-                this.pic = pic;
-        }
+    // Hold which character is which
+    var yourWarrior = "";
+    var yourEnemy = "";
 
-        // Initialize the Characters
-        function initCharacters(){
-                var luke = new Character("Luke Skywalker", 140, 15, 22, "../images/Luke Skywalker.png");
-                var rey = new Character("Rey", 180, 25, 20, "../images/Rey.png");
-                var obi = new Character("ObiWan Kenobi", 160, 20, 25, "../images/ObiWan Kenobi.png");
-                var darth = new Character("Darth Vader", 200, 40, 30, "../images/Darth Vader.png");
-                var kylo = new Character("Kylo Ren", 120, 35, 7, "../images/Kylo Ren.png");
-                var trooper = new Character("StormTrooper", 60, 10, 5, "../images/Storm Trooper.png");
-                charArray.push(luke, rey, obi, darth, kylo, trooper);
-        }
+    // Holds character being clicked
+    var characterClicked = "";
 
-        // Character Cards
-        function characterCards(divID){
-                $(divID).children().remove;
-                for (var i = 0; i < charArray.length; i++){
-                        $(divID).append("<div />");
-                        
-                }
-        }
-})
+    // Waits for enemy choice
+    var gamePaused = "";
 
+    // debugging
+    function consoleVariables() {
+        console.log("lukeArr: " + lukeArr);
+        console.log("obiwanArr: " + obiwanArr);
+        console.log("reyArr: " + reyArr);
+        console.log("vaderArr: " + vaderArr);
+        console.log("kyloArr: " + kyloArr);
+        console.log("maulArr: " + maulArr);
+        console.log("isGameOver: " + isGameOver + " isGameStart: " + isGameStart);
+        console.log("yourWarrior: " + yourWarrior + " yourEnemy: " + yourEnemy);
+        console.log("gamePaused: " + gamePaused);
+        console.log("===========================================");
+    }
+    
+    // Update hp info from array
+    $(".lukeHealth").html("HP: " + lukeArr[1]);
+    $(".obiwanHealth").html("HP: " + obiwanArr[1]);
+    $(".reyHealth").html("HP: " + reyArr[1]);
+    $(".vaderHealth").html("HP: " + vaderArr[1]);
+    $(".kyloHealth").html("HP: " + kyloArr[1]);
+    $(".maulHealth").html("HP: " + maulArr[1]);
 
+    // Game over
+    function gameOver(){
+        isGameOver = true;
+        $("#messages").html("You have been defeated... GAME OVER!");
+        $("#attackBtn").html("Play Again?");
+        consoleVariables();
+    }
 
+    // Player wins
+    function playerWins() {
+        isGameOver = true;
+        $("#messages").html("The galaxy is saved. YOU WON!");
+        $("#attackBtn").html("Play Again?");
+        consoleVariables();
+    }
+});

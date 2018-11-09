@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+hr { 
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double white;
+    color: white;
+    text-align: center;
+}
+
+.card-header, .card-footer{
+    background-color: black;
+    color: white;
+}
+
+.card-img {
+    height: 79.2%;
+}
