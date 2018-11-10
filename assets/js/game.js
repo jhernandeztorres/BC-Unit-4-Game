@@ -1,12 +1,12 @@
 $(document).ready(function(){
     // variables
-    // [visible, hp, attack, counter]
-    var lukeArr = [true, 120, 8, 8];
-    var obiwanArr = [true, 130, 10, 10];
-    var reyArr = [true, 125, 9, 9];
-    var vaderArr = [true, 200, 20, 20];
-    var kyloArr = [true, 110, 7, 6];
-    var maulArr = [true, 140, 9, 9];
+    // [visible, name, hp, attack, counter]
+    var lukeArr =  [true, "Luke Skywalker" ,120, 8, 8];
+    var obiwanArr = [true, "Ben Kenobi" ,130, 10, 10];
+    var reyArr = [true, "Rey" ,125, 9, 9];
+    var vaderArr = [true, "Darth Vader" ,200, 20, 20];
+    var kyloArr = [true, "Kylo Ren" ,110, 7, 6];
+    var maulArr = [true, "Darth Maul" ,140, 9, 9];
     
     // Shows whether game has started or not
     var isGameOver = false;
@@ -18,6 +18,9 @@ $(document).ready(function(){
 
     // Holds character being clicked
     var characterClicked = "";
+
+    playerOne = false;
+    playerTwo = false;
 
     // Waits for enemy choice
     var gamePaused = "";
@@ -36,13 +39,21 @@ $(document).ready(function(){
         console.log("===========================================");
     }
     
+    // Update name from array
+    $(".lukeName").html(lukeArr[1]);
+    $(".obiwanName").html(obiwanArr[1]);
+    $(".reyName").html(reyArr[1]);
+    $(".vaderName").html(vaderArr[1]);
+    $(".kyloName").html(kyloArr[1]);
+    $(".maulName").html(maulArr[1]);
+
     // Update hp info from array
-    $(".lukeHealth").html("HP: " + lukeArr[1]);
-    $(".obiwanHealth").html("HP: " + obiwanArr[1]);
-    $(".reyHealth").html("HP: " + reyArr[1]);
-    $(".vaderHealth").html("HP: " + vaderArr[1]);
-    $(".kyloHealth").html("HP: " + kyloArr[1]);
-    $(".maulHealth").html("HP: " + maulArr[1]);
+    $(".lukeHealth").html("HP: " + lukeArr[2]);
+    $(".obiwanHealth").html("HP: " + obiwanArr[2]);
+    $(".reyHealth").html("HP: " + reyArr[2]);
+    $(".vaderHealth").html("HP: " + vaderArr[2]);
+    $(".kyloHealth").html("HP: " + kyloArr[2]);
+    $(".maulHealth").html("HP: " + maulArr[2]);
 
     // Game over
     function gameOver(){
@@ -59,4 +70,82 @@ $(document).ready(function(){
         $("#attackBtn").html("Play Again?");
         consoleVariables();
     }
+    playerSelect();
+    // Move Card to Correct Position
+    function playerSelect(){
+        $(".lukeCard").on("click", function(){
+            if (playerOne === false && playerTwo === false){
+                $(".lukeCard").appendTo("#yourWarrior");
+                playerOne = true;
+            } else if (playerOne === true && playerTwo === false){
+                $(".lukeCard").appendTo("#yourEnemy");
+                playerTwo = true;
+            } else {
+                $("#messages").text("Warriors Already Chosen!");
+            }
+        });
+
+        $(".obiwanCard").on("click", function(){
+            if (playerOne === false && playerTwo === false){
+                $(".obiwanCard").appendTo("#yourWarrior");
+                playerOne = true;
+            } else if (playerOne === true && playerTwo === false){
+                $(".obiwanCard").appendTo("#yourEnemy");
+                playerTwo = true;
+            } else {
+                $("#messages").text("Warriors Already Chosen!");
+            }
+        });
+
+        $(".reyCard").on("click", function(){
+            if (playerOne === false && playerTwo === false){
+                $(".reyCard").appendTo("#yourWarrior");
+                playerOne = true;
+            } else if (playerOne === true && playerTwo === false){
+                $(".reyCard").appendTo("#yourEnemy");
+                playerTwo = true;
+            } else {
+                $("#messages").text("Warriors Already Chosen!");
+            }
+        });
+
+        $(".vaderCard").on("click", function(){
+            if (playerOne === false && playerTwo === false){
+                $(".vaderCard").appendTo("#yourWarrior");
+                playerOne = true;
+            } else if (playerOne === true && playerTwo === false){
+                $(".vaderCard").appendTo("#yourEnemy");
+                playerTwo = true;
+            } else {
+                $("#messages").text("Warriors Already Chosen!");
+            }
+        });
+
+        $(".kyloCard").on("click", function(){
+            if (playerOne === false && playerTwo === false){
+                $(".kyloCard").appendTo("#yourWarrior");
+                playerOne = true;
+            } else if (playerOne === true && playerTwo === false){
+                $(".kyloCard").appendTo("#yourEnemy");
+                playerTwo = true;
+            } else {
+                $("#messages").text("Warriors Already Chosen!");
+            }
+        });
+
+        $(".maulCard").on("click", function(){
+            if (playerOne === false && playerTwo === false){
+                $(".maulCard").appendTo("#yourWarrior");
+                playerOne = true;
+            } else if (playerOne === true && playerTwo === false){
+                $(".maulCard").appendTo("#yourEnemy");
+                playerTwo = true;
+            }  else {
+                $("#messages").text("Warriors Already Chosen!");
+            }
+        }); // End Player Select Function
+    };
+    
+
+    
 });

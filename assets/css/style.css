@@ -12,11 +12,13 @@ hr {
     text-align: center;
 }
 
+.card {
+    max-width: 190px;
+    /* max-height: 150px; */
+    /* margin: auto; */
+}
+
 .card-header, .card-footer{
     background-color: black;
     color: white;
-}
-
-.card-img {
-    height: 79.2%;
 }
