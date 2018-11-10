@@ -3,8 +3,18 @@ body {
     color: white;
 }
 
-hr { 
-    overflow: visible; /* For IE */
+h1,
+h2,
+h4 {
+    font-family: 'Monoton', cursive;
+    background: -webkit-linear-gradient(rgb(250, 246, 1), #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+hr {
+    overflow: visible;
+    /* For IE */
     padding: 0;
     border: none;
     border-top: medium double white;
@@ -16,7 +26,8 @@ hr {
     max-width: 190px;
 }
 
-.card-header, .card-footer{
+.card-header,
+.card-footer {
     background-color: black;
     color: white;
 }
