@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // variables
-    // [visible, name, hp, attack, counter]
+    // [name, hp, attack, counter]
     var lukeArr = ["Luke Skywalker", 120, 8, 8];
     var obiwanArr = ["Ben Kenobi", 130, 10, 10];
     var reyArr = ["Rey", 125, 9, 9];
@@ -10,15 +10,12 @@ $(document).ready(function () {
 
     // Shows whether game has started or not
     var isGameOver = false;
-    var isGameStart = false;
 
     // Hold which character is which
     // var yourWarrior = "";
     // var yourEnemy = "";
 
-    // Holds character being clicked
-    // var characterClicked = "";
-
+    // Character Picked Checker
     playerOne = false;
     playerTwo = false;
 
@@ -58,7 +55,10 @@ $(document).ready(function () {
         isGameOver = true;
         $("#messages").html("You have been defeated... GAME OVER!");
         $("#attackBtn").html("Play Again?");
-        reset();
+        isGameOver = true;
+        if(isGameOver === true){
+            $("#attackBtn").on("click", reset());
+        }
         consoleVariables();
     } // End Player Loses Function
 
@@ -67,15 +67,19 @@ $(document).ready(function () {
         isGameOver = true;
         $("#messages").text("The galaxy is saved. YOU WON!");
         $("#attackBtn").text("Play Again?");
-        reset();
+        isGameOver = true;
+        if(isGameOver === true){
+            $("#attackBtn").on("click", reset());
+        }
         consoleVariables();
     } // End Player Wins Function
-
+    
     // Reset Game
     function reset() {
         $("#attackBtn").on("click", function () {
-            $(".sith").appendTo("#sithSide");
-            $(".jedi").appendTo("#jediSide");
+            isGameOver === false;
+            location.reload();
+            consoleVariables();
         })
     } // End Reset Function
 
@@ -88,12 +92,12 @@ $(document).ready(function () {
             if (playerOne === false && playerTwo === false) {
                 $(".lukeCard").appendTo("#yourWarrior");
                 $(".lukeCard").removeClass("animated fadeInDown delay-1s");
-                $(".lukeCard").addClass("animated slideInLeft");
+                $(".lukeCard").addClass("animated slideInLeft warrior");
                 playerOne = true;
             } else if (playerOne === true && playerTwo === false) {
                 $(".lukeCard").appendTo("#yourEnemy");
                 $(".lukeCard").removeClass("animated fadeInDown delay-1s");
-                $(".lukeCard").addClass("animated slideInRight");
+                $(".lukeCard").addClass("animated slideInRight enemy");
                 playerTwo = true;
             } else {
                 $("#messages").text("Warriors Already Chosen!");
@@ -107,12 +111,12 @@ $(document).ready(function () {
             if (playerOne === false && playerTwo === false) {
                 $(".obiwanCard").appendTo("#yourWarrior");
                 $(".obiwanCard").removeClass("animated fadeInDown delay-1s");
-                $(".obiwanCard").addClass("animated slideInLeft");
+                $(".obiwanCard").addClass("animated slideInLeft warrior");
                 playerOne = true;
             } else if (playerOne === true && playerTwo === false) {
                 $(".obiwanCard").appendTo("#yourEnemy");
                 $(".obiwanCard").removeClass("animated fadeInDown delay-1s");
-                $(".obiwanCard").addClass("animated slideInRight");
+                $(".obiwanCard").addClass("animated slideInRight enemy");
                 playerTwo = true;
             } else {
                 $("#messages").text("Warriors Already Chosen!");
@@ -126,12 +130,12 @@ $(document).ready(function () {
             if (playerOne === false && playerTwo === false) {
                 $(".reyCard").appendTo("#yourWarrior");
                 $(".reyCard").removeClass("animated fadeInDown delay-1s");
-                $(".reyCard").addClass("animated slideInLeft");
+                $(".reyCard").addClass("animated slideInLeft warrior");
                 playerOne = true;
             } else if (playerOne === true && playerTwo === false) {
                 $(".reyCard").appendTo("#yourEnemy");
                 $(".reyCard").removeClass("animated fadeInDown delay-1s");
-                $(".reyCard").addClass("animated slideInRight");
+                $(".reyCard").addClass("animated slideInRight enemy");
                 playerTwo = true;
             } else {
                 $("#messages").text("Warriors Already Chosen!");
@@ -146,12 +150,12 @@ $(document).ready(function () {
             if (playerOne === false && playerTwo === false) {
                 $(".vaderCard").appendTo("#yourWarrior");
                 $(".vaderCard").removeClass("animated fadeInUp delay-1s");
-                $(".vaderCard").addClass("animated slideInLeft");
+                $(".vaderCard").addClass("animated slideInLeft warrior");
                 playerOne = true;
             } else if (playerOne === true && playerTwo === false) {
                 $(".vaderCard").appendTo("#yourEnemy");
                 $(".vaderCard").removeClass("animated fadeInUp delay-1s");
-                $(".vaderCard").addClass("animated slideInRight");
+                $(".vaderCard").addClass("animated slideInRight enemy");
                 playerTwo = true;
             } else {
                 $("#messages").text("Warriors Already Chosen!");
@@ -165,12 +169,12 @@ $(document).ready(function () {
             if (playerOne === false && playerTwo === false) {
                 $(".kyloCard").appendTo("#yourWarrior");
                 $(".kyloCard").removeClass("animated fadeInUp delay-1s");
-                $(".kyloCard").addClass("animated slideInLeft");
+                $(".kyloCard").addClass("animated slideInLeft warrior");
                 playerOne = true;
             } else if (playerOne === true && playerTwo === false) {
                 $(".kyloCard").appendTo("#yourEnemy");
                 $(".kyloCard").removeClass("animated fadeInUp delay-1s");
-                $(".kyloCard").addClass("animated slideInRight");
+                $(".kyloCard").addClass("animated slideInRight enemy");
                 playerTwo = true;
             } else {
                 $("#messages").text("Warriors Already Chosen!");
@@ -184,12 +188,12 @@ $(document).ready(function () {
             if (playerOne === false && playerTwo === false) {
                 $(".maulCard").appendTo("#yourWarrior");
                 $(".obiwanCard").removeClass("animated fadeInUp delay-1s");
-                $(".maulCard").addClass("animated slideInLeft");
+                $(".maulCard").addClass("animated slideInLeft warrior");
                 playerOne = true;
             } else if (playerOne === true && playerTwo === false) {
                 $(".maulCard").appendTo("#yourEnemy");
                 $(".obiwanCard").removeClass("animated fadeInUp delay-1s");
-                $(".maulCard").addClass("animated slideInRight");
+                $(".maulCard").addClass("animated slideInRight enemy");
                 playerTwo = true;
             } else {
                 $("#messages").text("Warriors Already Chosen!");
@@ -204,7 +208,7 @@ $(document).ready(function () {
     // Attack Function
     function attack() {
         $("#attackBtn").on("click", function () {
-            // Checks that the characters have been chosen
+            // Checks that the characters have been chosen before allowing an attack
             if (playerOne === false && playerTwo === false) {
                 $("#messages").text("Choose all fighters first!");
                 setTimeout(function () {
@@ -215,6 +219,15 @@ $(document).ready(function () {
                 setTimeout(function () {
                     $("#messages").text("Fight!");
                 }, 2000)
+            } else {
+                console.log("Warriors Chosen.");
+            } // End Players Chosen Check
+
+            // New Attack Function
+            if(playerOne === true && playerTwo === true){
+                $("attackBtn").on("click", function(){
+                    
+                })
             }
         })
     } // End Attack Function
