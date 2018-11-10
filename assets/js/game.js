@@ -93,6 +93,7 @@ $(document).ready(function () {
                 $(".lukeCard").appendTo("#yourWarrior");
                 $(".lukeCard").removeClass("animated fadeInDown delay-1s");
                 $(".lukeCard").addClass("animated slideInLeft warrior");
+                $(".card-header, .card-footer").not(".lukeCard").css("background-color", "red");
                 playerOne = true;
             } else if (playerOne === true && playerTwo === false) {
                 $(".lukeCard").appendTo("#yourEnemy");
@@ -112,6 +113,7 @@ $(document).ready(function () {
                 $(".obiwanCard").appendTo("#yourWarrior");
                 $(".obiwanCard").removeClass("animated fadeInDown delay-1s");
                 $(".obiwanCard").addClass("animated slideInLeft warrior");
+                $(".card-header, .card-footer").not(".obiwanCard").css("background-color", "red");
                 playerOne = true;
             } else if (playerOne === true && playerTwo === false) {
                 $(".obiwanCard").appendTo("#yourEnemy");
@@ -131,6 +133,7 @@ $(document).ready(function () {
                 $(".reyCard").appendTo("#yourWarrior");
                 $(".reyCard").removeClass("animated fadeInDown delay-1s");
                 $(".reyCard").addClass("animated slideInLeft warrior");
+                $(".card-header, .card-footer").not("reyCard").css("background-color", "red");
                 playerOne = true;
             } else if (playerOne === true && playerTwo === false) {
                 $(".reyCard").appendTo("#yourEnemy");
@@ -151,6 +154,7 @@ $(document).ready(function () {
                 $(".vaderCard").appendTo("#yourWarrior");
                 $(".vaderCard").removeClass("animated fadeInUp delay-1s");
                 $(".vaderCard").addClass("animated slideInLeft warrior");
+                $(".card-header, .card-footer").not(".vaderCard").css("background-color", "red");
                 playerOne = true;
             } else if (playerOne === true && playerTwo === false) {
                 $(".vaderCard").appendTo("#yourEnemy");
@@ -170,6 +174,7 @@ $(document).ready(function () {
                 $(".kyloCard").appendTo("#yourWarrior");
                 $(".kyloCard").removeClass("animated fadeInUp delay-1s");
                 $(".kyloCard").addClass("animated slideInLeft warrior");
+                $(".card-header, .card-footer").not(".kyloCard").css("background-color", "red");
                 playerOne = true;
             } else if (playerOne === true && playerTwo === false) {
                 $(".kyloCard").appendTo("#yourEnemy");
@@ -189,6 +194,7 @@ $(document).ready(function () {
                 $(".maulCard").appendTo("#yourWarrior");
                 $(".obiwanCard").removeClass("animated fadeInUp delay-1s");
                 $(".maulCard").addClass("animated slideInLeft warrior");
+                $(".card-header, .card-footer").not(".maulCard").css("background-color", "red");
                 playerOne = true;
             } else if (playerOne === true && playerTwo === false) {
                 $(".maulCard").appendTo("#yourEnemy");
