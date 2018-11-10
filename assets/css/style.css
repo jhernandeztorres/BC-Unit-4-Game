@@ -14,8 +14,6 @@ hr {
 
 .card {
     max-width: 190px;
-    /* max-height: 150px; */
-    /* margin: auto; */
 }
 
 .card-header, .card-footer{
