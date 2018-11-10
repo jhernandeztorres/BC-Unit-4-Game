@@ -82,6 +82,9 @@ $(document).ready(function(){
                 playerTwo = true;
             } else {
                 $("#messages").text("Warriors Already Chosen!");
+                setTimeout(function(){
+                    $("#messages").text("Fight!");
+                }, 2000)
             }
         });
 
@@ -94,6 +97,9 @@ $(document).ready(function(){
                 playerTwo = true;
             } else {
                 $("#messages").text("Warriors Already Chosen!");
+                setTimeout(function(){
+                    $("#messages").text("Fight!");
+                }, 2000)
             }
         });
 
@@ -106,6 +112,9 @@ $(document).ready(function(){
                 playerTwo = true;
             } else {
                 $("#messages").text("Warriors Already Chosen!");
+                setTimeout(function(){
+                    $("#messages").text("Fight!");
+                }, 2000)
             }
         });
 
@@ -118,6 +127,9 @@ $(document).ready(function(){
                 playerTwo = true;
             } else {
                 $("#messages").text("Warriors Already Chosen!");
+                setTimeout(function(){
+                    $("#messages").text("Fight!");
+                }, 2000)
             }
         });
 
@@ -130,6 +142,9 @@ $(document).ready(function(){
                 playerTwo = true;
             } else {
                 $("#messages").text("Warriors Already Chosen!");
+                setTimeout(function(){
+                    $("#messages").text("Fight!");
+                }, 2000)
             }
         });
 
@@ -142,6 +157,9 @@ $(document).ready(function(){
                 playerTwo = true;
             }  else {
                 $("#messages").text("Warriors Already Chosen!");
+                setTimeout(function(){
+                    $("#messages").text("Fight!");
+                }, 2000)
             }
         }); // End Player Select Function
     };
